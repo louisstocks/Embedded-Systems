@@ -14,6 +14,7 @@ int main()
     volatile int n;
     while(true){
     
+    lcd.cls();
     lcd.puts("RED");
     wait_us(1000000);
 
@@ -31,10 +32,11 @@ int main()
     green = 0;
 
     for(n=0; n<=3; n = n+1){
+        wait_us(200000);
         amber = 1;
         lcd.cls();
         lcd.puts("Amber");
-        wait_us(20000);
+        wait_us(200000);
         amber = 0;
     }
 

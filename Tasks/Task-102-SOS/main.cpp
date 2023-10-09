@@ -4,6 +4,7 @@ using namespace uop_msb;
 
 #define WAIT_TIME_MS 500 
 DigitalOut greenLED(TRAF_GRN1_PIN);
+DigitalOut redLED(TRAF_RED1_PIN);
 Buzzer buzz;
 Buttons buttons;
 
@@ -18,7 +19,7 @@ int main()
     while (buttons.BlueButton == 0);
     
     //Repeat everything "forever" (until the power is removed or the chip is reset)
-    while (true)
+    /*while (true)
     {
         //On for 500ms
         greenLED = 1;
@@ -31,9 +32,34 @@ int main()
         buzz.playTone("C", Buzzer::HIGHER_OCTAVE);
         wait_us(WAIT_TIME_MS * 1000);  //500ms
 
+        redLED = 1;
+        buzz.playTone("A");
+        wait_us(WAIT_TIME_MS * 1000);
+
         //Pause
         buzz.rest();
         wait_us(WAIT_TIME_MS * 1000);
 
+    }*/
+
+    
+    while (true){
+        buzz.playTone("D");
+        wait_us(WAIT_TIME_MS * 1000);
+        buzz.playTone("A");
+        wait_us(WAIT_TIME_MS * 1000);
+        buzz.playTone("G", Buzzer::HIGHER_OCTAVE);
+        wait_us(WAIT_TIME_MS * 1000);
+        buzz.playTone("G");
+        wait_us(WAIT_TIME_MS * 1000);
+        buzz.playTone("F");
+        wait_us(WAIT_TIME_MS * 1000);
+        buzz.playTone("D");
+        wait_us(WAIT_TIME_MS * 1000);
+        buzz.playTone("F");
+        wait_us(WAIT_TIME_MS * 1000);
+        buzz.playTone("G");
+        wait_us(WAIT_TIME_MS * 1000);
+        
     }
 }
